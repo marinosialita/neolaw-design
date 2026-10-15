@@ -1,0 +1,19 @@
+{
+  "query": "φόνος εκ προμελέτης",
+  "retrievedAt": "2026-10-11",
+  "provider": "MyNomos",
+  "sort": "Relevance",
+  "totalResults": 97,
+  "cases": [
+    {"id":"case-01","rank":1,"name":"Ονησίλλου ν. Δημοκρατίας","path":"/apofaseis/aad/meros_2/1991/rep/1991_2_0556.htm"},
+    {"id":"case-02","rank":2,"name":"Χαραλάμπους Χριστόφορος ν. Δημοκρατίας (Αρ. 1)","path":"/apofaseis/aad/meros_2/2012/rep/2012_2_0370.htm"},
+    {"id":"case-03","rank":3,"name":"Στυλιανού v. Δημοκρατία","path":"/apofaseis/aad/meros_2/2021/2-202102-240-182.htm"},
+    {"id":"case-04","rank":4,"name":"Γενικός Εισαγγελέας της Δημοκρατίας ν. Χαράλαμπου Αυξεντίου","path":"/apofaseis/aad/meros_2/2005/rep/2005_2_0197.htm"},
+    {"id":"case-05","rank":5,"name":"Χριστάκης Κύπρου Γαβριήλ ν. Κυπριακής Δημοκρατίας","path":"/apofaseis/aad/meros_2/2009/rep/2009_2_0693.htm"},
+    {"id":"case-06","rank":6,"name":"Bo Yo Hong και Άλλοι ν. Δημοκρατίας και Άλλης","path":"/apofaseis/aad/meros_2/2007/rep/2007_2_0293.htm"},
+    {"id":"case-07","rank":7,"name":"DEJAN κ.α. v. ΔΗΜΟΚΡΑΤΙΑΣ","path":"/apofaseis/aad/meros_2/2022/2-202205-205-17PoinEfEtc.htm"},
+    {"id":"case-08","rank":8,"name":"Γεωργίου Ανδρέου ν. Δημοκρατίας","path":"/apofaseis/aad/meros_3/2016/3-201602-81-143.htm"},
+    {"id":"case-09","rank":9,"name":"Nasir Mahmoud Malik και Άλλος ν. Δημοκρατίας","path":"/apofaseis/aad/meros_2/2006/rep/2006_2_0036.htm"},
+    {"id":"case-10","rank":10,"name":"GIORGI BARATASHVILI v. ΔΗΜΟΚΡΑΤΙΑΣ","path":"/apofaseis/aad/meros_2/2022/2-202211-207-1492.htm"}
+  ]
+}

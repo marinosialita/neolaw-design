@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "provenance": {
+    "kind": "synthetic-labelled-fixtures",
+    "created": "2026-10-13",
+    "author": "NeoLaw development verification",
+    "basis": "Invented people, companies and identifiers. Identity labels are explicit fixture truth, not claims about real people. Namesakes are deliberately retained as candidates and counted separately from the target identity.",
+    "heldOutPolicy": "New fixed scenarios recorded before executing this benchmark. Do not change labels or matcher thresholds to improve scores; add versioned cases and record why a label changes.",
+    "limitations": "This is a controlled regression benchmark, not an independently curated accuracy evaluation, exhaustive global sanctions coverage, or an estimate of real-world precision/recall. Synthetic negative identities were authored alongside the targets. No external reviewer adjudicated them."
+  },
+  "sources": [{"id":"eu","status":"available"},{"id":"ofac","status":"available"},{"id":"un","status":"available"},{"id":"uk","status":"available"}],
+  "records": [
+    {"id":"fixture:person-a","sourceId":"eu","name":"Mara Konstantinidou","aliases":["Μάρα Κωνσταντινίδου"],"type":"person","countries":["Cyprus"],"datesOfBirth":["1968-03-11"],"passportNumbers":["CYTEST001122"]},
+    {"id":"fixture:namesake-a","sourceId":"uk","name":"Mara Konstantinidou","aliases":[],"type":"person","countries":["Greece"],"datesOfBirth":["1978-08-21"],"passportNumbers":["GRTEST009988"]},
+    {"id":"fixture:person-b","sourceId":"ofac","name":"Dmitri Sokolov","aliases":["Дмитрий Соколов","D. Sokolov"],"weakAliases":["D. Sokolov"],"type":"person","countries":["Russia"],"datesOfBirth":["1966-12-07"],"passportNumbers":["RUTEST334455"]},
+    {"id":"fixture:person-c","sourceId":"un","name":"Nadia Kovač","aliases":["Nadja Kovac"],"type":"person","countries":["Croatia"],"datesOfBirth":["1982-01-19"]},
+    {"id":"fixture:near-name-c","sourceId":"eu","name":"Nadia Kovar","aliases":[],"type":"person","countries":["Czechia"],"datesOfBirth":["1975-11-30"]},
+    {"id":"fixture:company-a","sourceId":"eu","name":"Aster Maritime Ltd","aliases":["Aster Shipping"],"type":"entity","countries":["Cyprus"],"datesOfBirth":[],"registrationNumbers":["HE922110"]},
+    {"id":"fixture:company-near-a","sourceId":"uk","name":"Aster Maritime Holdings","aliases":[],"type":"entity","countries":["Malta"],"datesOfBirth":[],"registrationNumbers":["C555001"]},
+    {"id":"fixture:unrelated-person","sourceId":"un","name":"Mika Ito","aliases":[],"type":"person","countries":["Japan"],"datesOfBirth":["1979-05-17"]}
+  ],
+  "cases": [
+    {"id":"exact-person","purpose":"Exact name target with an intentional namesake","query":{"name":"Mara Konstantinidou","type":"person"},"targetIds":["fixture:person-a"],"allowedExtraIds":["fixture:namesake-a"]},
+    {"id":"namesake-conflict","purpose":"Conflicting date and country remain visible, never silently remove a name candidate","query":{"name":"Mara Konstantinidou","type":"person","dob":"1968-03-11","country":"Cyprus"},"targetIds":["fixture:person-a"],"allowedExtraIds":["fixture:namesake-a"],"expectDifferences":{"fixture:namesake-a":["Date of birth","Country / jurisdiction"]}},
+    {"id":"reordered-name","purpose":"Family name first","query":{"name":"Konstantinidou, Mara","type":"person"},"targetIds":["fixture:person-a"],"allowedExtraIds":["fixture:namesake-a"]},
+    {"id":"single-omission","purpose":"One omitted letter in a longer surname","query":{"name":"Mara Konstantindou","type":"person"},"targetIds":["fixture:person-a"],"allowedExtraIds":["fixture:namesake-a"]},
+    {"id":"greek-alias","purpose":"Recorded Greek-script alias","query":{"name":"Μάρα Κωνσταντινίδου","type":"person"},"targetIds":["fixture:person-a"],"allowedExtraIds":["fixture:namesake-a"]},
+    {"id":"cyrillic-alias","purpose":"Recorded Cyrillic-script alias","query":{"name":"Дмитрий Соколов","type":"person"},"targetIds":["fixture:person-b"],"allowedExtraIds":[]},
+    {"id":"weak-alias","purpose":"Weak alias stays labelled as insufficient alone","query":{"name":"D. Sokolov","type":"person"},"targetIds":["fixture:person-b"],"allowedExtraIds":[],"expectWeakAlias":true},
+    {"id":"diacritics","purpose":"Diacritics normalize while a near namesake remains a review candidate","query":{"name":"Nadia Kovac","type":"person"},"targetIds":["fixture:person-c"],"allowedExtraIds":["fixture:near-name-c"]},
+    {"id":"passport-different-name","purpose":"Passport retrieves target despite a different supplied name; conflicts stay visible","query":{"name":"Elena Petrova","type":"person","passportNumber":"RU TEST-334455","dob":"1980-01-01"},"targetIds":["fixture:person-b"],"allowedExtraIds":[],"expectIdentifier":"passportNumber","expectDifferences":{"fixture:person-b":["Name","Date of birth"]}},
+    {"id":"company-alias","purpose":"Company's published trading alias","query":{"name":"Aster Shipping","type":"entity"},"targetIds":["fixture:company-a"],"allowedExtraIds":[]},
+    {"id":"company-partial","purpose":"Partial company name with a distinct similarly named company","query":{"name":"Aster Maritime","type":"entity"},"targetIds":["fixture:company-a"],"allowedExtraIds":["fixture:company-near-a"]},
+    {"id":"registration-different-name","purpose":"Whole registration number retrieves target with a differing name","query":{"name":"Comet Logistics","type":"entity","registrationNumber":"HE 922-110"},"targetIds":["fixture:company-a"],"allowedExtraIds":[],"expectIdentifier":"registrationNumber","expectDifferences":{"fixture:company-a":["Name"]}},
+    {"id":"no-match","purpose":"Invented unrelated name produces no candidate in this fixture","query":{"name":"Zoe Tasman","type":"person"},"targetIds":[],"allowedExtraIds":[]},
+    {"id":"wrong-entity-type","purpose":"A company lookup does not retrieve a person of the same name","query":{"name":"Mara Konstantinidou","type":"entity"},"targetIds":[],"allowedExtraIds":[]},
+    {"id":"unavailable-source","purpose":"Unavailable official source excludes cached candidate and preserves incomplete coverage","query":{"name":"Dmitri Sokolov","type":"person"},"unavailableSources":["ofac"],"targetIds":[],"allowedExtraIds":[],"excludeFromAccuracy":true},
+    {"id":"interrupted-research","purpose":"Stopped web research cannot turn completed zero-match official checks into overall clearance","query":{"name":"Zoe Tasman","type":"person"},"targetIds":[],"allowedExtraIds":[],"interrupted":true,"excludeFromAccuracy":true},
+    {"id":"retrieval-cap","purpose":"101 indistinguishable fixture records exercise explicit truncation without calling the omitted row an identity miss","query":{"name":"Orion Fixture Trading Ltd","type":"entity"},"targetIds":[],"allowedExtraIds":[],"expansion":{"count":101,"name":"Orion Fixture Trading Ltd","type":"entity","sourceId":"eu"},"excludeFromAccuracy":true}
+  ]
+}

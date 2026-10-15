@@ -1,0 +1,158 @@
+/* The MyNomosAI contract interaction, in NeoLaw's colours. */
+.contract-command-slot{position:relative;margin-bottom:5px;text-align:left}
+.contract-command{display:inline-flex;align-items:stretch;max-width:100%;border:1px solid #c6dfe1;border-radius:9px;background:#eaf4f4;overflow:hidden}
+.contract-command-label{display:inline-flex;align-items:center;gap:7px;min-width:0;min-height:31px;padding:4px 10px;color:var(--action);font-size:13px;font-weight:500;text-align:left}
+.contract-command-label>span:first-child{font-weight:650;color:#5c9da5}
+.contract-command-label>span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.contract-command-remove{display:grid;place-items:center;flex-shrink:0;width:30px;border-left:1px solid #c6dfe1;color:#5d8d94}
+.contract-command-label:hover,.contract-command-remove:hover{background:#dceff0}
+.contract-command-info{position:absolute;left:0;bottom:calc(100% + 9px);z-index:20;width:min(310px,100%);padding:12px 14px;border:1px solid #c9dedf;border-radius:12px;background:white;box-shadow:0 6px 25px #183a421a;font-size:12px;line-height:1.6;color:var(--muted)}
+.contract-command-info strong,.contract-command-info span{display:block}.contract-command-info strong{color:var(--ink);font-weight:600;margin-bottom:3px}
+.composer.has-contract{border-color:#8db7bc;box-shadow:0 0 0 3px #86c4cd14}
+.composer-contract-note{font-size:11.5px;line-height:1.6;color:var(--muted);margin:8px 3px 0;text-align:left}
+.contract-demo-layout{--contract-document-width:55%;display:flex;min-height:0;height:100dvh;overflow:hidden;background:var(--bg)}
+.contract-conversation{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0;overflow:hidden}
+.contract-chat-heading{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 26px;flex-shrink:0}
+.contract-chat-heading h1{font-size:13px;line-height:1.4;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;flex:1}
+.contract-chat-heading .icon-btn{width:28px;height:28px}
+.contract-demo-badge{font-size:10px;line-height:1.4;padding:3px 6px;border:1px solid #d1e1e2;border-radius:5px;color:#65858a;white-space:nowrap}
+.contract-chat-scroll{position:relative;flex:1;min-height:90px;overflow:auto;overscroll-behavior:contain;padding:22px max(28px,calc((100% - 760px)/2)) 30px;scrollbar-width:thin;scrollbar-color:#c2d4d6 transparent}
+.contract-message{margin:0 0 27px;font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.contract-message.user{display:flex;justify-content:flex-end}
+.contract-message.user>div,.contract-message.user>dl{max-width:92%;padding:14px 18px;border:1px solid #d0e2e4;border-radius:18px 18px 4px 18px;background:#e0edef;color:#273e42;box-shadow:0 2px 5px #274c5403;white-space:pre-wrap;margin:0}
+.contract-message.assistant p{margin:12px 0 0}
+.contract-progress{display:flex;align-items:center;gap:11px;font-size:13px;color:#415c61}
+.contract-progress-mark{display:grid;place-items:center;width:29px;height:32px;flex-shrink:0;color:#739ca2;clip-path:polygon(50% 0,95% 23%,95% 77%,50% 100%,5% 77%,5% 23%);background:#dbe9eb}
+.contract-progress-mark svg{width:16px;height:16px}.contract-progress-mark.is-active svg{animation:contract-pulse 1.3s ease-in-out infinite}
+.contract-answer-summary dt{font-size:11.5px;line-height:1.5;color:#6a8388;white-space:normal}
+.contract-answer-summary dd{font-size:13px;line-height:1.5;margin:2px 0 10px;white-space:normal}.contract-answer-summary dd:last-child{margin-bottom:0}
+.contract-dock{padding:8px max(28px,calc((100% - 760px)/2)) 8px;flex-shrink:0}
+.contract-followup{border-color:#abc6ca;border-radius:18px;padding:14px 16px 11px;box-shadow:0 1px 5px #244d540a}
+.contract-followup textarea{min-height:47px;font-size:13px;line-height:1.6}.contract-followup textarea:disabled{color:var(--muted);opacity:1}
+.contract-followup-caption{display:flex;align-items:center;gap:6px;min-width:0;font-size:11px;color:#7c9296;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contract-followup .send-button{margin-left:auto;flex-shrink:0}.contract-followup .send-button.is-stop{background:#a75d5d}
+.contract-followup .send-button.is-stop svg{width:13px;height:13px;fill:currentColor}
+.contract-demo-note{text-align:center;font-size:10px;line-height:1.4;color:#7c9094;margin:8px 0 0}
+.contract-save-note{font-size:12px;color:#9d4d43;line-height:1.5;padding:8px}
+.contract-question-sheet{width:calc(100% - 38px);margin:0 auto 18px;border:1px solid #dce5e5;border-radius:14px;background:white;box-shadow:0 10px 28px -20px #244c5450,0 1px 2px #244c5408;overflow:hidden}
+.contract-question-sheet>header{display:flex;align-items:center;gap:6px;min-height:40px;padding:4px 8px 4px 6px;border-bottom:1px solid #e3eaea;font-size:12px;color:#546b70}
+.contract-question-sheet.is-collapsed>header{border-bottom:0}
+.contract-question-count{flex:1;text-align:right;font-size:11px;color:#7e9094}
+.contract-sheet-icon{display:grid;place-items:center;width:28px;height:28px;border-radius:7px;color:#718a8f;flex-shrink:0}
+.contract-sheet-icon:hover:not(:disabled){background:#eff6f6}.contract-sheet-icon:disabled{opacity:.3;cursor:default}
+.contract-question-body{padding:14px 16px 12px;max-height:min(390px,43dvh);overflow:auto;scrollbar-width:thin}
+.contract-question{font-size:13px;font-weight:500;line-height:1.5;margin:0 0 7px;color:#243a3f;outline-offset:4px}
+.contract-question-hint{font-size:11.5px;line-height:1.5;color:#798b90;margin:0 0 10px}
+.contract-options{display:flex;flex-direction:column;gap:2px}
+.contract-option{display:flex;align-items:flex-start;gap:10px;min-height:32px;padding:6px 7px;border-radius:8px;font-size:12.5px;line-height:1.4;text-align:left;font-weight:400;color:#395258}
+.contract-option>span{flex-shrink:0;margin-top:1px;width:15px;height:15px;border:1.5px solid #c5d4d6;border-radius:50%;background:white}
+.contract-option.is-on{font-weight:500;color:var(--action)}.contract-option.is-on>span{border-color:var(--action);box-shadow:inset 0 0 0 3.5px white,inset 0 0 0 8px var(--action)}
+.contract-option:hover{background:#f0f6f6}.contract-option.is-other{color:#809196}
+.contract-other-answer{width:calc(100% - 32px);margin:4px 0 4px 32px;border:1px solid #c5d7d9;border-radius:8px;padding:8px 10px;font:12.5px/1.5 Inter,system-ui,sans-serif;outline-color:var(--brand)}
+.contract-question-body>footer{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.contract-question-skip,.contract-question-go{min-height:32px;padding:0 13px;border-radius:8px;font-size:12px;font-weight:500}
+.contract-question-skip{border:1px solid #e0e8e8;color:#6a7f83;background:white}.contract-question-go{background:var(--action);color:white}
+.contract-question-go:disabled{opacity:.38;cursor:default}
+.contract-divider{position:relative;width:7px;flex-shrink:0;cursor:col-resize;touch-action:none;border-left:1px solid #d6e2e3;background:#e8eeee}
+.contract-divider:after{content:'';position:absolute;left:2px;top:45%;height:44px;width:2px;border-radius:2px;background:#afc8cb;opacity:0}.contract-divider:hover:after,.contract-divider:focus-visible:after{opacity:1}
+.contract-document{display:flex;flex-direction:column;flex:0 0 var(--contract-document-width);min-width:0;min-height:0;background:#f7f9f9;overflow:hidden;animation:panel-in .3s ease-out}
+.contract-document-toolbar{display:flex;align-items:center;gap:8px;min-height:52px;padding:8px 14px;border-bottom:1px solid #dce5e5;background:#fafcfc;flex-shrink:0}
+.contract-word-icon{display:grid;place-items:center;width:23px;height:27px;flex-shrink:0;border:1px solid #d1ddeb;border-radius:4px;background:#edf3fb;color:#3973b4;font-size:12px;font-weight:700}
+.contract-document-name{min-width:0;flex:1}.contract-document-name strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;font-weight:500}.contract-document-name small{display:block;font-size:9px;color:#7b9295;margin-top:3px}
+.contract-document-status{font-size:9px;color:#769297;padding:2px 5px;border-radius:5px;background:#e7eff0}
+.contract-word-download{display:flex;align-items:center;gap:4px;border:1px solid #d5e1e2;border-radius:6px;padding:5px 7px;font-size:10px;white-space:nowrap;color:#597b83;text-decoration:none}
+.contract-word-download[aria-disabled=true]{opacity:.4;cursor:default}
+.contract-document-toolbar .icon-btn{width:26px;height:26px;flex-shrink:0}
+.contract-document-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:22px 22px 40px;scrollbar-width:thin;scrollbar-color:#c8d6d7 transparent}
+.contract-document-paper{font-family:'Times New Roman',Georgia,serif;font-size:12px;line-height:1.65;color:#252b2d;max-width:795px;margin:0 auto;min-height:920px;padding:48px clamp(25px,4vw,65px) 65px;border:1px solid #e6eaea;background:white;box-shadow:0 3px 12px #263f4505;overflow-wrap:anywhere}
+.contract-document-paper h1{font-family:inherit;font-size:20px;line-height:1.35;font-weight:700;text-align:center;letter-spacing:0;margin:0 0 30px;color:#182729}
+.contract-document-paper h2{font-family:inherit;font-size:12px;font-weight:700;line-height:1.5;margin:22px 0 8px;color:#182729}
+.contract-document-paper p{margin:0 0 10px;text-align:justify;white-space:pre-wrap}
+.contract-document-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:32px;padding:6px 14px;border-top:1px solid #dce5e5;font-size:10px;color:#769094}
+.contract-writing-state:before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:#83b6be;margin-right:6px;vertical-align:middle}
+.contract-show-full{color:var(--action);font-size:10px;white-space:nowrap}
+.contract-document-card{display:flex;align-items:center;gap:12px;max-width:100%;width:350px;padding:14px;border:1px solid #cedfe1;background:#f9fcfc;border-radius:11px;margin-top:18px;text-align:left}
+.contract-document-card>span:nth-child(2){flex:1;min-width:0}.contract-document-card strong{display:block;font-size:12px;font-weight:500;line-height:1.5}.contract-document-card small{display:block;font-size:10px;color:#84999e;margin-top:3px}
+.contract-complete-actions{display:flex;gap:17px;margin-top:12px}.contract-complete-actions button{font-size:11px;color:#6a8b92}
+.contract-writing-caret{display:inline-block;height:13px;width:1.5px;background:var(--action);animation:contract-pulse .8s ease-in-out infinite}
+@keyframes contract-pulse{50%{opacity:.3}}
+@media(min-width:841px){.contract-demo-layout.has-document .contract-chat-scroll{padding:20px 24px}.contract-demo-layout.has-document .contract-dock{padding:8px 20px}.contract-demo-layout.has-document .contract-question-sheet{width:100%}.contract-demo-layout.has-document .contract-chat-heading{padding:10px 20px}.contract-demo-layout.has-document .contract-demo-badge{display:none}}
+@media(max-width:840px){.contract-dock{padding:8px 22px}.contract-chat-scroll{padding:20px 26px}.contract-demo-layout.has-document .contract-conversation{display:none}.contract-document{flex:1;width:100%;max-width:none}.contract-divider{display:none}.contract-question-sheet{width:calc(100% - 24px)}}
+@media(max-width:600px){.contract-chat-heading{padding:14px 18px 10px 60px;min-height:52px}.contract-demo-badge{display:none}.contract-chat-scroll{padding:18px 20px}.contract-dock{padding:7px 14px 8px}.contract-question-sheet{width:100%;margin-bottom:12px}.contract-question-body{padding:12px}.contract-question{font-size:13px}.contract-document-toolbar{padding-left:58px}.contract-document-status{display:none}.contract-document-scroll{padding:14px 10px 28px}.contract-document-paper{padding:32px 24px;font-size:12px}.contract-message{font-size:13px}.contract-followup-caption{max-width:78%}}
+@media(prefers-reduced-motion:reduce){.contract-progress-mark.is-active svg,.contract-writing-caret{animation:none}}
+
+/* The supplied MyNomos completion remains readable beside the document. */
+.contract-completion-response{font-size:14px;line-height:1.75;color:#2d4247}
+.contract-completion-response .contract-completion-summary{margin-top:20px}
+.contract-completion-response h2{font-size:15px;line-height:1.5;font-weight:600;color:#243b40;margin:25px 0 12px}
+.contract-completion-response ul{margin:0;padding-left:21px;list-style:disc}
+.contract-completion-response li{padding-left:3px;margin-bottom:14px}
+.contract-completion-response li::marker{color:#6a9097}
+.contract-legal-basis strong{font-weight:600;color:#274e56}
+.contract-clause-quote{color:#688088}
+.contract-completion-response .contract-fields-to-complete{margin-top:22px}
+.contract-completion-response .contract-guide{display:flex;align-items:flex-start;gap:8px;margin-top:22px;padding-top:15px;border-top:1px solid #d4e2e4;font-size:12px;color:#6b8990}
+.contract-guide svg{margin-top:3px}
+.contract-completion .contract-complete-actions{margin-top:18px;padding-bottom:5px}
+
+/* 5.6-second document reveal: layered paper, light, then the first word. */
+.contract-document-stage{position:relative;display:flex;flex:1;min-height:0;overflow:hidden}
+.contract-document-stage>.contract-document-scroll{width:100%}
+.contract-reveal{position:absolute;inset:0;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 36%,#faffff 0,#f2f8f8 48%,#e9f1f2 100%);isolation:isolate}
+.contract-reveal:before{content:'';position:absolute;inset:0;opacity:.19;background-image:radial-gradient(#749fa6 .65px,transparent .65px);background-size:22px 22px;mask-image:radial-gradient(ellipse at center,black,transparent 70%)}
+.contract-reveal-scene{position:relative;display:flex;flex-direction:column;align-items:center;width:100%;padding:34px 20px 46px}
+.contract-reveal-aura{position:absolute;width:min(480px,90%);aspect-ratio:1;top:-35px;border-radius:50%;background:conic-gradient(from 45deg,#9ed4d900,#aad6d88c,#def4e7b0,#b8dce7a0,#9ed4d900);filter:blur(30px);animation:reveal-aura var(--reveal-duration) ease-in-out both}
+.contract-reveal-orbit{position:absolute;width:350px;max-width:85%;height:350px;top:5px;border:1px solid #76afb71c;border-radius:50%;transform:rotateX(62deg) rotate(-25deg);box-shadow:0 0 45px #b1d4d623;animation:reveal-orbit var(--reveal-duration) ease-in-out both}
+.contract-reveal-stack{position:relative;width:180px;height:235px;margin:5px 0 37px;perspective:900px;transform-style:preserve-3d;animation:reveal-stack var(--reveal-duration) cubic-bezier(.22,1,.36,1) both}
+.contract-reveal-sheet{position:absolute;inset:0;border:1px solid #b8d2d982;border-radius:9px;background:linear-gradient(140deg,#ffffffed,#f4fafa);transform-origin:50% 80%;box-shadow:0 12px 35px -18px #285e6b65}
+.contract-reveal-sheet.sheet-back{animation:reveal-back var(--reveal-duration) ease-in-out both;background:#edf7f8}
+.contract-reveal-sheet.sheet-middle{animation:reveal-middle var(--reveal-duration) ease-in-out both;background:#f9fdfd}
+.contract-reveal-sheet.sheet-front{padding:28px 25px;overflow:hidden;box-shadow:0 23px 42px -22px #376a7680,0 1px 1px white inset;animation:reveal-front var(--reveal-duration) ease-in-out both}
+.contract-reveal-monogram{width:34px;height:34px;margin:0 auto 19px;animation:reveal-mark var(--reveal-duration) ease-in-out both}
+.contract-reveal-monogram svg{width:100%;height:100%;overflow:visible;fill:#74aeb8}.contract-reveal-monogram rect{fill:#34535b}
+.contract-reveal-rule{width:66%;height:4px;border-radius:2px;background:#6e9da95c;margin:0 auto 21px;animation:reveal-rule var(--reveal-duration) ease-in-out both;transform-origin:left}
+.contract-reveal-lines{display:flex;flex-direction:column;gap:8px}.contract-reveal-lines i{display:block;width:100%;height:3px;border-radius:2px;background:linear-gradient(90deg,#9ebfc6a0,#cedfe44d);transform-origin:left;animation:reveal-lines var(--reveal-duration) ease-in-out both}
+.contract-reveal-lines i:nth-child(2){width:90%;animation-name:reveal-lines-two}.contract-reveal-lines i:nth-child(3){width:95%;animation-name:reveal-lines-three}.contract-reveal-lines i:nth-child(4){width:75%;animation-name:reveal-lines-two}.contract-reveal-lines i:nth-child(5){width:96%;margin-top:5px;animation-name:reveal-lines-three}.contract-reveal-lines i:nth-child(6){width:58%;animation-name:reveal-lines-two}
+.contract-reveal-seal{position:absolute;bottom:23px;left:25px;right:25px;display:flex;justify-content:space-between;animation:reveal-rule var(--reveal-duration) ease-in-out both}.contract-reveal-seal span{width:43px;height:1px;background:#92b6bf88}
+.contract-reveal-scan{position:absolute;inset:-100% -80%;pointer-events:none;background:linear-gradient(115deg,transparent 42%,#b8e7ee18 46%,#fff 49%,#c6eef250 52%,transparent 57%);mix-blend-mode:screen;animation:reveal-scan var(--reveal-duration) ease-in-out both}
+.contract-reveal-spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#90c7ce;box-shadow:0 0 12px 3px #a2dfe273;animation:reveal-spark var(--reveal-duration) ease-in-out both}.spark-one{left:-44px;top:42px}.spark-two{right:-34px;top:156px;animation-name:reveal-spark-two}.spark-three{right:-16px;top:-24px;width:3px;height:3px}
+.contract-reveal-copy{container-type:inline-size;position:relative;z-index:2;text-align:center;width:100%;animation:reveal-copy var(--reveal-duration) ease-in-out both}
+.contract-reveal-eyebrow{display:block;font-size:9px;letter-spacing:.24em;font-weight:600;color:#7d9a9f;margin-bottom:17px}
+.contract-reveal-titles{position:relative;height:58px;width:100%;max-width:410px;margin:auto}
+.contract-reveal-titles p{position:absolute;inset:0;margin:0;display:grid;place-items:center;font-family:'Source Serif 4',Georgia,serif;font-size:clamp(14px,6.1cqw,30px);white-space:nowrap;line-height:1.2;letter-spacing:-.035em;color:#335660;font-weight:400;padding:0 6px;animation:reveal-title-one var(--reveal-duration) ease both}
+.contract-reveal-titles .reveal-title-two{animation-name:reveal-title-two}.contract-reveal-titles .reveal-title-three{animation-name:reveal-title-three}
+.contract-reveal-contract{display:block;margin-top:8px;color:#769197;font-size:11px;letter-spacing:.01em;line-height:1.6}
+.contract-reveal-progress{position:relative;width:92px;height:2px;margin:24px auto 0;border-radius:2px;overflow:hidden;background:#b4ccd346}
+.contract-reveal-progress span{display:block;position:absolute;inset:0;border-radius:2px;background:linear-gradient(90deg,#add5d9,#598c9b);transform-origin:left;animation:reveal-progress var(--reveal-duration) linear both}
+.contract-reveal *{animation-delay:var(--reveal-offset,0ms)}
+.contract-reveal.is-paused *{animation-play-state:paused!important}
+.contract-document.is-revealing .contract-document-toolbar{background:#f4f9f9}.contract-document.is-revealing .contract-document-status{background:#dceef0;color:#5a8b96}
+@keyframes reveal-aura{0%{opacity:0;transform:scale(.7) rotate(-30deg)}20%{opacity:1}80%{opacity:.85}100%{opacity:.3;transform:scale(1.14) rotate(55deg)}}
+@keyframes reveal-orbit{0%{opacity:0;transform:rotateX(62deg) rotate(-35deg) scale(.8)}25%,75%{opacity:1}100%{opacity:0;transform:rotateX(62deg) rotate(35deg) scale(1.15)}}
+@keyframes reveal-stack{0%{opacity:0;transform:translateY(30px) rotateX(12deg) rotateY(-14deg) scale(.92)}17%{opacity:1;transform:translateY(0) rotateX(5deg) rotateY(-9deg) scale(1)}70%{transform:translateY(-6px) rotateX(0) rotateY(5deg)}100%{opacity:1;transform:translateY(0) rotateX(0) rotateY(0) scale(1.03)}}
+@keyframes reveal-back{0%{opacity:0;transform:translate(-3px,3px) rotate(-2deg)}25%,70%{opacity:1;transform:translate(-22px,11px) rotate(-10deg)}100%{opacity:.4;transform:translate(0,3px) rotate(0)}}
+@keyframes reveal-middle{0%{opacity:0;transform:translate(2px,2px) rotate(1deg)}25%,70%{opacity:1;transform:translate(18px,5px) rotate(8deg)}100%{opacity:.5;transform:translate(0,2px) rotate(0)}}
+@keyframes reveal-front{0%{transform:translateY(10px)}25%,70%{transform:translateY(-4px)}100%{transform:translateY(0)}}
+@keyframes reveal-mark{0%,8%{opacity:0;transform:translateY(5px);filter:blur(4px)}25%,100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes reveal-rule{0%,18%{opacity:0;transform:scaleX(.3)}42%,100%{opacity:1;transform:scaleX(1)}}
+@keyframes reveal-lines{0%,24%{opacity:0;transform:scaleX(0)}47%,100%{opacity:1;transform:scaleX(1)}}
+@keyframes reveal-lines-two{0%,29%{opacity:0;transform:scaleX(0)}53%,100%{opacity:1;transform:scaleX(1)}}
+@keyframes reveal-lines-three{0%,34%{opacity:0;transform:scaleX(0)}60%,100%{opacity:1;transform:scaleX(1)}}
+@keyframes reveal-scan{0%,27%{transform:translateX(-55%);opacity:0}38%{opacity:.8}74%{transform:translateX(55%);opacity:.8}83%,100%{transform:translateX(70%);opacity:0}}
+@keyframes reveal-spark{0%,8%{opacity:0;transform:translateY(15px) scale(.3)}30%,55%{opacity:.8}90%,100%{opacity:0;transform:translateY(-20px) scale(.6)}}
+@keyframes reveal-spark-two{0%,18%{opacity:0;transform:translateY(15px) scale(.3)}48%,67%{opacity:.7}100%{opacity:0;transform:translateY(-25px) scale(.6)}}
+@keyframes reveal-copy{0%{opacity:0;transform:translateY(12px)}17%,100%{opacity:1;transform:translateY(0)}}
+@keyframes reveal-title-one{0%,5%{opacity:0;transform:translateY(7px);filter:blur(4px)}17%,30%{opacity:1;transform:translateY(0);filter:blur(0)}39%,100%{opacity:0;transform:translateY(-7px);filter:blur(4px)}}
+@keyframes reveal-title-two{0%,31%{opacity:0;transform:translateY(7px);filter:blur(4px)}43%,64%{opacity:1;transform:translateY(0);filter:blur(0)}74%,100%{opacity:0;transform:translateY(-7px);filter:blur(4px)}}
+@keyframes reveal-title-three{0%,66%{opacity:0;transform:translateY(7px);filter:blur(4px)}79%,100%{opacity:1;transform:translateY(0);filter:blur(0)}}
+@keyframes reveal-progress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(max-height:650px){.contract-reveal-stack{width:140px;height:190px;margin-bottom:17px}.contract-reveal-sheet.sheet-front{padding:19px 21px}.contract-reveal-monogram{width:27px;height:27px;margin-bottom:14px}.contract-reveal-rule{margin-bottom:14px}.contract-reveal-lines{gap:6px}.contract-reveal-titles{height:45px}.contract-reveal-eyebrow{margin-bottom:8px}.contract-reveal-progress{margin-top:17px}}
+@media(prefers-reduced-motion:reduce){.contract-reveal *{animation:none!important;transform:none!important;filter:none!important}.contract-reveal .contract-reveal-aura,.contract-reveal-orbit,.contract-reveal-scan,.contract-reveal-spark,.contract-reveal-titles .reveal-title-one,.contract-reveal-titles .reveal-title-two{display:none}.contract-reveal .contract-reveal-sheet.sheet-back,.contract-reveal .contract-reveal-sheet.sheet-middle{display:none}}
+
+/* The paper stays empty until the cinematic has fully faded and settled. */
+.contract-reveal.is-exiting{animation:reveal-exit var(--reveal-exit-duration,600ms) cubic-bezier(.4,0,.2,1) both;animation-delay:var(--reveal-exit-offset,0ms);pointer-events:none}
+.contract-reveal.is-paused{animation-play-state:paused!important}
+.contract-document-scroll.is-opening{animation:reveal-page-enter 600ms cubic-bezier(.22,1,.36,1) both}
+@keyframes reveal-exit{from{opacity:1;filter:blur(0);transform:scale(1)}to{opacity:0;filter:blur(5px);transform:scale(1.035)}}
+@keyframes reveal-page-enter{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.contract-reveal.is-exiting,.contract-document-scroll.is-opening{animation:none!important}}

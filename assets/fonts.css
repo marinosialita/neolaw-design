@@ -1,0 +1,7 @@
+/* Font fallbacks and font variables, as in the original app. The fonts themselves come from Google Fonts. */
+@font-face{font-family:Plus Jakarta Sans Fallback;src:local(Arial);ascent-override:98.88%;descent-override:21.15%;line-gap-override:0.0%;size-adjust:104.98%}
+@font-face{font-family:Inter Fallback;src:local(Arial);ascent-override:90.44%;descent-override:22.52%;line-gap-override:0.0%;size-adjust:107.12%}
+@font-face{font-family:"Source Serif 4 Fallback";src:local(Times New Roman);ascent-override:87.87%;descent-override:28.41%;line-gap-override:0.0%;size-adjust:117.91%}
+.plus_jakarta_sans_64d44073-module__wHBeFa__className{font-family:Plus Jakarta Sans,Plus Jakarta Sans Fallback;font-style:normal}.plus_jakarta_sans_64d44073-module__wHBeFa__variable{--font-plus-jakarta:"Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
+.inter_e657601a-module__Tb8bjq__className{font-family:Inter,Inter Fallback;font-style:normal}.inter_e657601a-module__Tb8bjq__variable{--font-inter:"Inter","Inter Fallback"}
+.source_serif_4_32adc6c0-module__wylgOW__className{font-family:"Source Serif 4","Source Serif 4 Fallback";font-style:normal}.source_serif_4_32adc6c0-module__wylgOW__variable{--font-source-serif:"Source Serif 4","Source Serif 4 Fallback"}

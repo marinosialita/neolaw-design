@@ -1,0 +1,41 @@
+.thinking.research-progress{display:block;width:100%;max-width:620px;min-width:0;margin:7px 0 27px;padding:0;color:#203437;font-size:13px;line-height:1.5}
+.research-progress__header{display:flex;align-items:center;gap:8px;min-width:0;margin-bottom:15px}
+.research-progress__mark{display:inline-flex;align-items:center;justify-content:center;flex:none;width:25px;height:25px;border:1px solid #d1e4e7;border-radius:8px;background:#e5f0f2;color:#2b6b74}
+.research-progress__header>strong{font-size:12px;font-weight:600;color:#31575e}
+.research-progress__demo{margin-left:auto;color:#647d82;font-size:10px;line-height:1.5}
+.research-progress__status{display:flex;align-items:flex-start;gap:8px;min-height:21px;font-size:13px;line-height:1.7;color:#385d65}
+.research-progress__pulse{flex:none;width:5px;height:5px;margin:8px 1px 0 10px;border-radius:50%;background:#6aabb6;box-shadow:0 0 0 3px #86c4cd14;animation:neolaw-research-pulse 1.5s ease-in-out infinite}
+.research-progress__track{height:2px;width:144px;max-width:45%;margin:12px 0 0 24px;overflow:hidden;border-radius:2px;background:#dce9eb}
+.research-progress__track>span{display:block;height:100%;width:45%;border-radius:inherit;background:linear-gradient(90deg,transparent,#86c4cd,#2b6b74,transparent);animation:neolaw-research-scan 1.7s ease-in-out infinite}
+@keyframes neolaw-research-scan{from{transform:translateX(-100%)}to{transform:translateX(325%)}}
+.research-progress__sources{margin:16px 0 0 1px}
+.research-progress__sources:has(.research-progress__source-step[hidden]:first-child){display:none}
+.research-progress__source-step{position:relative;display:flex;gap:10px;min-width:0;margin-top:17px;animation:neolaw-research-reveal .22s ease-out both}
+.research-progress__source-step:first-child{margin-top:0}
+.research-progress__source-step[hidden]{display:none!important}
+.research-progress__source-step.is-complete:not(:last-child)::before{content:'';position:absolute;left:10px;top:24px;bottom:-16px;width:1px;background:#dce8ea}
+.research-progress__step-icon{position:relative;z-index:1;display:inline-flex;align-items:center;justify-content:center;flex:none;width:21px;height:21px;margin-top:1px;border:1px solid #cbdfe3;border-radius:7px;background:#edf5f6;color:#598f9a;transition:background-color .2s,border-color .2s}
+.research-progress__stage-icon,.research-progress__check{display:inline-flex;align-items:center;justify-content:center}
+.research-progress__check{display:none}
+.research-progress__source-step.is-current .research-progress__step-icon{color:#2b6b74;border-color:#a9ccd2;background:#e5f2f4}
+.research-progress__source-step.is-complete .research-progress__stage-icon{display:none}
+.research-progress__source-step.is-complete .research-progress__check{display:inline-flex}
+.research-progress__source-content{flex:1;min-width:0}
+.research-progress__source-content>h3{margin:1px 0 9px;font-size:12px;font-weight:550;line-height:1.7;color:#4a717c}
+.research-progress__source-content>h3>span{font-size:11px;font-weight:400;color:#8ba1a6}
+.research-progress__articles{display:flex;flex-wrap:wrap;gap:6px}
+.research-progress__articles>button{display:inline-flex;align-items:center;gap:6px;min-height:33px;max-width:100%;padding:6px 8px;border:1px solid #d9e7e9;border-radius:7px;background:#f4f9f9;color:#5f808a;font-family:inherit;font-size:11px;line-height:1.5;text-align:left;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
+.research-progress__articles>button>span{flex:none;color:#2b6b74;font-weight:550}
+.research-progress__articles>button>svg{flex:none;margin-left:1px;color:#83a6ae}
+.research-progress__articles>button:hover{background:#fff;border-color:#a8cbd3;color:#2b6b74}
+.research-progress__cases{display:grid;gap:1px;max-width:520px}
+.research-progress__cases>button{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:32px;width:100%;padding:5px 8px;margin-left:-8px;border:1px solid transparent;border-radius:7px;background:transparent;color:#4e7784;font-family:inherit;font-size:12px;line-height:1.6;text-align:left;cursor:pointer;transition:background-color .18s,border-color .18s,color .18s}
+.research-progress__cases>button>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.research-progress__cases>button>svg{flex:none;color:#82a4ad}
+.research-progress__cases>button:hover{color:#2b6b74;border-color:#d8e7ea;background:#f1f8f9}
+.research-progress button:focus-visible{outline:2px solid #76b2bc;outline-offset:3px}
+.research-progress.is-ready .research-progress__pulse{animation:none;background:#2b6b74;box-shadow:none}
+@keyframes neolaw-research-pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes neolaw-research-reveal{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:600px){.research-progress__header{gap:7px;flex-wrap:wrap;margin-bottom:13px}.research-progress__demo{font-size:9px;margin-left:0}.research-progress__status{font-size:13px}.research-progress__source-step{gap:9px}.research-progress__articles{gap:6px}.research-progress__articles>button{min-height:37px;font-size:11px}.research-progress__cases>button{min-height:37px;font-size:12px}.research-progress__source-content>h3>span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.research-progress__pulse,.research-progress__source-step,.research-progress__track>span{animation:none}.research-progress__step-icon,.research-progress__articles>button,.research-progress__cases>button{transition:none}}

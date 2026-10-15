@@ -1,0 +1,8 @@
+# Local report download; frontend and sanctions matching have no build dependencies.
+reportlab==4.4.9
+
+# Use native system trust without disabling HTTPS certificate verification.
+truststore==0.10.4
+
+# Official Australian sanctions workbook parsing.
+openpyxl==3.1.5

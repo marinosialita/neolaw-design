@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "neolaw-design",
+  "main": "cloudflare/worker.js",
+  "compatibility_date": "2025-04-01",
+  "workers_dev": true,
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api", "/api/*"],
+    "not_found_handling": "none"
+  }
+}

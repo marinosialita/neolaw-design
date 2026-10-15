@@ -1,0 +1,19 @@
+{
+  "name": "neolaw-design",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-cloudflare.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "check:deployment": "node scripts/check-cloudflare.mjs",
+    "check:contracts": "node scripts/check-contract-catalog.mjs && node scripts/check-contract-drafting.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

@@ -1,0 +1,40 @@
+/* The same NeoLaw mark introduces both the source walkthrough and its answer. */
+.assistant-label{gap:9px;margin-bottom:15px;font-size:12px}
+.answer-brand{align-items:flex-end;gap:3px}
+.answer-brand .brand-symbol{width:18px;height:21px}
+.answer-brand .brand-word{width:58px;height:13px}
+
+/* Give answer sections a clear hierarchy without enlarging the surrounding UI. */
+.assistant-body{font-size:15px;line-height:1.8;overflow-wrap:break-word}
+.assistant-body p{margin-bottom:14px}
+.assistant-body h3{font-size:19px;line-height:1.45;font-weight:650;letter-spacing:-.3px;margin:25px 0 12px;color:var(--ink);text-wrap:pretty}
+.assistant-body h3:first-child{margin-top:4px}
+.assistant-body .tool-welcome h2{font-size:21px}
+.assistant-body .tool-welcome p{font-size:14px}
+.assistant-body .sample-foot{font-size:11px}
+.assistant-body .btn{font-size:14px}
+.assistant-body .btn.small{font-size:13px}
+.assistant-body .chip,.assistant-body .risk-summary span{font-size:12px}
+.assistant-body .review-finding header{font-size:13px}
+.assistant-body .review-finding p{font-size:13px!important}
+.assistant-body .review-finding small{font-size:11px}
+.assistant-body .resolution-fields label{font-size:12px}
+.assistant-body .resolution-fields input{font-size:14px}
+.assistant-body .chat-research-note{font-size:13px}
+.assistant-body .chat-research-questions li,.assistant-body .chat-legacy-answer{font-size:14px}
+.assistant-body .chat-research-more>summary{font-size:13px}
+.assistant-body .chat-source-card strong{font-size:14px}
+.assistant-body .chat-source-card small,.assistant-body .chat-source-open{font-size:12px}
+.assistant-body .chat-source-code{font-size:11px}
+.assistant-body .chat-citation,.assistant-body .chat-article-citation{font-size:12px;min-height:23px}
+.assistant-body .chat-statutes>ul>li>span{font-size:14px;line-height:1.75}
+.assistant-body .chat-statutes>.chat-research-note{font-size:12px}
+
+/* Word-by-word reveal keeps rich citations and controls intact. */
+.answer-revealing{min-height:1.8em}
+.answer-reveal-cursor{display:inline-block;inline-size:3px;block-size:1em;margin-inline-start:3px;border-radius:2px;background:var(--action);vertical-align:-.12em;animation:answer-caret 1s ease-in-out infinite;pointer-events:none}
+.answer-reveal-skip{margin-left:auto;padding:5px 7px;border-radius:6px;color:var(--muted);font-size:11px;font-weight:450;line-height:1.5;white-space:nowrap;transition:color .16s,background-color .16s}
+.answer-reveal-skip:hover{color:var(--action);background:#e3eeef}
+.chat-flow:has(.answer-revealing){scroll-behavior:auto}
+@keyframes answer-caret{0%,70%,100%{opacity:1}85%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.answer-reveal-cursor{animation:none}.answer-reveal-skip{transition:none}}

@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import {compareScreenings,screeningChangesHTML} from '../modules/screening-changes.js';
+let n=0;const test=(label,fn)=>{fn();n++;console.log('PASS '+label);};
+const match=(id,name='Example Person',extra={})=>({record:{id,sourceId:'un',name,type:'person',...extra}});
+const report=(rows,status='completed',extra={})=>({id:'r',createdAt:'2026-10-13T10:00:00Z',query:{name:'Example Person',type:'person'},sourceSnapshots:[],matches:rows,research:{status,officialChecks:[{id:'un',status,matchCount:rows.length,candidates:rows,...extra}]}});
+const old=report([match('un:1'),match('un:2')]);
+test('Added, changed and not-returned distinguish record changes',()=>{const c=compareScreenings(old,report([match('un:1','Example Person',{programs:['Changed programme']}),match('un:3')]));assert.equal(c.added.length,1);assert.equal(c.changed.length,1);assert.equal(c.notReturned.length,1);assert.match(c.note,/not confirmed/);});
+test('Failed sources cannot imply removal',()=>{const c=compareScreenings(old,report([],'failed'));assert.equal(c.notReturned.length,0);assert.equal(c.gaps.length,1);});
+test('Truncated source cannot imply removal',()=>{const c=compareScreenings(old,report([],'completed',{matchCount:100}));assert.equal(c.notReturned.length,0);assert.equal(c.gaps.length,1);});
+test('Freshly available evidence is not labelled a new listing',()=>{const c=compareScreenings(report([],'failed'),report([match('un:1')]));assert.equal(c.added.length,0);assert.equal(c.newlyAvailable.length,1);});
+test('Changed identifying query prevents misleading comparisons',()=>{const c=compareScreenings(old,{...old,query:{...old.query,passportNumber:'FAKE123'}});assert.equal(c.status,'different_subject_details');assert.equal(c.changed.length,0);});
+test('Missing original and running review remain explicit',()=>{assert.equal(compareScreenings(null,old).status,'missing');assert.equal(compareScreenings(old,report([],'running')).status,'running');});
+test('Ordering and retrieval scores do not count as evidence changes',()=>{const before=report([{...match('un:1','Example',{aliases:['A','B']}),score:90}]);const after=report([{...match('un:1','Example',{aliases:['B','A']}),score:95}]);assert.equal(compareScreenings(before,after).changed.length,0);});
+test('Unchanged results stay separate from clearance and prior decisions',()=>{const c=compareScreenings({...old,decisions:{'un:1':{status:'confirmed'}}},old);assert.equal(c.changed.length,0);assert.match(c.note,/decisions have not been applied/);});
+test('Source record identifiers escape markup in comparison display',()=>{const c=compareScreenings(report([]),report([match('un:evil','<img onerror=evil()>')]));assert.ok(!screeningChangesHTML(c).includes('<img'));});
+test('Person checks do not label inapplicable GLEIF as a coverage gap',()=>{const a=report([]);a.research.gleif={status:'not_applicable'};assert.equal(compareScreenings(a,a).gaps.length,0);});
+console.log(n+' repeat-review checks passed');
